@@ -523,7 +523,7 @@ inv__3:
 	mov.s $f1, $f0
 	div.s $f1, $f1, $f2
 	la $t0, rm_inv
-	swc1 $f1, 0($t0)
+	swc1 $f1, 0($t0) # save to a
 
 	# b
 	la $t0, det
@@ -542,7 +542,136 @@ inv__3:
 	neg.s $f1, $f1
 	div.s $f1, $f1, $f2
 	la $t0, rm_inv
+	swc1 $f1, 4($t0) # save to b
+
+	# c
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 4($t1) # b
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 8($t1) # c
 	swc1 $f1, 4($t0)
+	lwc1 $f1,16($t1) # e
+	swc1 $f1, 8($t0)
+	lwc1 $f1,20($t1) # f
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1, 8($t0) # save to c
+
+	# d
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1,12($t1) # d
+	swc1 $f1, 0($t0)
+	lwc1 $f1,20($t1) # f
+	swc1 $f1, 4($t0)
+	lwc1 $f1,24($t1) # g
+	swc1 $f1, 8($t0)
+	lwc1 $f1,32($t1) # i
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	neg.s $f1, $f1
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1, 8($t0) # save to d
+
+	# e
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 0($t1) # a
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 8($t1) # c
+	swc1 $f1, 4($t0)
+	lwc1 $f1,24($t1) # g
+	swc1 $f1, 8($t0)
+	lwc1 $f1,32($t1) # i
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1,16($t0) # save to e
+
+	# f
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 0($t1) # a
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 8($t1) # c
+	swc1 $f1, 4($t0)
+	lwc1 $f1,12($t1) # d
+	swc1 $f1, 8($t0)
+	lwc1 $f1,20($t1) # f
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	neg.s $f1, $f1
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1,20($t0) # save to f
+
+	# g
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1,12($t1) # d
+	swc1 $f1, 0($t0)
+	lwc1 $f1,16($t1) # e
+	swc1 $f1, 4($t0)
+	lwc1 $f1,24($t1) # g
+	swc1 $f1, 8($t0)
+	lwc1 $f1,28($t1) # h
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1,24($t0) # save to g
+
+	# h
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 0($t1) # a
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 4($t1) # b
+	swc1 $f1, 4($t0)
+	lwc1 $f1,24($t1) # g
+	swc1 $f1, 8($t0)
+	lwc1 $f1,28($t1) # h
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	neg.s $f1, $f1
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1,28($t0) # save to h
+
+	# i
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 0($t1) # a
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 4($t1) # b
+	swc1 $f1, 4($t0)
+	lwc1 $f1,12($t1) # d
+	swc1 $f1, 8($t0)
+	lwc1 $f1,16($t1) # e
+	swc1 $f1,12($t0)
+	jal det__2
+	# $f0 now has det__2
+	mov.s $f1, $f0
+	div.s $f1, $f1, $f2
+	la $t0, rm_inv
+	swc1 $f1,32($t0) # save to i
 
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
