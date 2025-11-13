@@ -2,7 +2,7 @@
 rm: .space 400
 rm_inv: .space 400
 det: .space 400
-constants: .float 1.0,2.0,3.0,4.0,5.0,6.0
+test__inv__2__input:      .float 1.0,2.0,3.0,4.0,5.0,6.0
 test__inv__2__assertions: .float -2.0, 1.0, 1.5, -0.5
 test__inv__3__input:      .float -3.0, 2.0, -5.0, -1.0, 0.0, -2.0, 3.0, -4.0, 1.0
 test__inv__3__assertions: .float 1.333, -3.0, 0.666, 0.833, -2.0, 0.166, -0.666, 1.0, -0.333
@@ -12,7 +12,7 @@ main:
 	# test__inv__2
 	
 	la $t0, rm
-	la $t1, constants
+	la $t1, test__inv__2__input
 	lwc1 $f1, 0($t1)
 	swc1 $f1, 0($t0)
 	lwc1 $f1, 4($t1)
