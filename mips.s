@@ -2,7 +2,7 @@
 rm:     .space 400
 rm_inv: .space 400
 det:    .space 400
-test__inv__2__input:      .float 1.0,2.0,3.0,4.0
+test__inv__2__input:      .float 1.0, 2.0, 3.0, 4.0
 test__inv__2__assertions: .float -2.0, 1.0, 1.5, -0.5
 test__inv__3__input:      .float -3.0, 2.0, -5.0, -1.0, 0.0, -2.0, 3.0, -4.0, 1.0
 test__inv__3__assertions: .float 1.333333333, -3.0, 0.666666666, 0.833333333, -2.0, 0.166666666, -0.666666666, 1.0, -0.333333333
@@ -1925,5 +1925,6 @@ inv__4:
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
 
 
