@@ -1250,7 +1250,7 @@ inv__3:
 	swc1 $f1,32($t0)
 	jal det__3
 	# $f0 now has det__3
-	mov.s $f2, $f0
+	mov.s $f9, $f0
 
 	# a
 	la $t0, det
@@ -1266,7 +1266,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 0($t0) # save to a
 
@@ -1285,7 +1285,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 4($t0) # save to b
 
@@ -1303,7 +1303,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 8($t0) # save to c
 
@@ -1322,7 +1322,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 8($t0) # save to d
 
@@ -1340,7 +1340,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,16($t0) # save to e
 
@@ -1359,7 +1359,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,20($t0) # save to f
 
@@ -1377,7 +1377,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,24($t0) # save to g
 
@@ -1396,7 +1396,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,28($t0) # save to h
 
@@ -1414,7 +1414,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,32($t0) # save to i
 
@@ -1464,7 +1464,7 @@ inv__4:
 	swc1 $f1,60($t0)
 	jal det__4
 	# $f0 now has det__4
-	mov.s $f2, $f0
+	mov.s $f9, $f0
 
 	# a
 	la $t0, det
@@ -1490,7 +1490,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 0($t0) # save to a
 
@@ -1519,7 +1519,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 4($t0) # save to b
 
@@ -1547,7 +1547,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 8($t0) # save to c
 
@@ -1576,7 +1576,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,12($t0) # save to d
 
@@ -1605,7 +1605,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,16($t0) # save to e
 
@@ -1633,7 +1633,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,20($t0) # save to f
 
@@ -1662,7 +1662,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,24($t0) # save to g
 
@@ -1690,7 +1690,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,28($t0) # save to h
 
@@ -1718,7 +1718,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,32($t0) # save to i
 
@@ -1747,7 +1747,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,36($t0) # save to j
 
@@ -1775,7 +1775,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,40($t0) # save to k
 
@@ -1804,7 +1804,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,44($t0) # save to l
 
@@ -1833,7 +1833,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,48($t0) # save to m
 
@@ -1861,7 +1861,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,52($t0) # save to n
 
@@ -1890,7 +1890,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,56($t0) # save to o
 
@@ -1918,13 +1918,14 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,60($t0) # save to p
 
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
 
 
 
