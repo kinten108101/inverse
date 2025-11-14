@@ -1173,6 +1173,9 @@ det__5:
 	
 	jr $ra
 
+# @param `rm` base address of input matrix
+# @param `rm_inv` base address of output matrix
+# @param `det` see det__2
 inv__2:
 	addi $sp,$sp,-4
 	sw $ra, 0($sp)
@@ -1219,6 +1222,9 @@ inv__2:
 	addi $sp,$sp,4
 	jr $ra
 
+# @param `rm` base address of input matrix
+# @param `rm_inv` base address of output matrix
+# @param `det` see det__3
 inv__3:
 	addi $sp,$sp,-4
 	sw $ra, 0($sp)
@@ -1416,6 +1422,9 @@ inv__3:
 	addi $sp,$sp,4
 	jr $ra
 
+# @param `rm` base address of input matrix
+# @param `rm_inv` base address of output matrix
+# @param `det` see det__4
 inv__4:
 	addi $sp,$sp,-4
 	sw $ra, 0($sp)
