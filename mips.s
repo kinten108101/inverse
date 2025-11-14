@@ -1932,6 +1932,187 @@ det__5:
 	mul.s $f3,$f3,$f1 # *
 
 	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,44($t0)  # m
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,68($t0)  # s
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,44($t0)  # m
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,72($t0)  # t
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,88($t0)  # x
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,48($t0)  # n
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,64($t0)  # r
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,48($t0)  # n
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,72($t0)  # t
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,84($t0)  # w
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,52($t0)  # o
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,64($t0)  # r
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,88($t0)  # x
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,20($t0)  # f
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,52($t0)  # o
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,68($t0)  # s
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,84($t0)  # w
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,40($t0)  # l
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,68($t0)  # s
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,40($t0)  # l
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,72($t0)  # t
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,88($t0)  # x
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,48($t0)  # n
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,60($t0)  # q
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,48($t0)  # n
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,72($t0)  # t
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,80($t0)  # v
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,52($t0)  # o
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,60($t0)  # q
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,88($t0)  # x
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,24($t0)  # g
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,52($t0)  # o
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,68($t0)  # s
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,80($t0)  # v
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,28($t0)  # h
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,40($t0)  # l
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,64($t0)  # r
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	add.s $f0,$f0,$f3 # +
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,28($t0)  # h
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,40($t0)  # l
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,72($t0)  # t
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,84($t0)  # w
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+
+	lwc1 $f1,16($t0)  # e
+	lwc1 $f2,28($t0)  # h
+	mul.s $f3,$f1,$f2 # *
+	lwc1 $f1,44($t0)  # m
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,60($t0)  # q
+	mul.s $f3,$f3,$f1 # *
+	lwc1 $f1,92($t0)  # y
+	mul.s $f3,$f3,$f1 # *
+
+	sub.s $f0,$f0,$f3 # -
+	
 	
 	jr $ra
 
