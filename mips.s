@@ -1755,7 +1755,7 @@ inv__4:
 	swc1 $f1, 8($t0)
 	lwc1 $f1,32($t1) # i
 	swc1 $f1,12($t0)
-	lwc1 $f1,36($t1) # j
+	lwc1 $f1,40($t1) # k
 	swc1 $f1,16($t0)
 	lwc1 $f1,44($t1) # l
 	swc1 $f1,20($t0)
@@ -2060,6 +2060,7 @@ inv__4:
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
 
 
 
