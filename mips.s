@@ -110,6 +110,102 @@ main:
 	lwc1 $f1, 0($t1)
 	c.eq.s $f0, $f1
 	bc1f assertion_failed
+
+	lwc1 $f0, 4($t0) # b
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 4($t1) # b assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 8($t0) # c
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 8($t1) # c assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 12($t0) # d
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 12($t1) # d assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 16($t0) # e
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 16($t1) # e assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 20($t0) # f
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 20($t1) # f assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 24($t0) # g
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 24($t1) # g assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 28($t0) # h
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 28($t1) # h assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 32($t0) # i
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 32($t1) # i assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
 	
 exit:
 	li $v0, 10
@@ -1925,6 +2021,7 @@ inv__4:
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
 
 
 
