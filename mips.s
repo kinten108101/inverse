@@ -1324,7 +1324,7 @@ inv__3:
 	neg.s $f1, $f1
 	div.s $f1, $f1, $f9
 	la $t0, rm_inv
-	swc1 $f1, 8($t0) # save to d
+	swc1 $f1, 12($t0) # save to d
 
 	# e
 	la $t0, det
@@ -1925,6 +1925,7 @@ inv__4:
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
 
 
 
