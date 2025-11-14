@@ -6,6 +6,7 @@ test__inv__2__input:      .float 1.0, 2.0, 3.0, 4.0
 test__inv__2__assertions: .float -2.0, 1.0, 1.5, -0.5
 test__inv__3__input:      .float -3.0, 2.0, -5.0, -1.0, 0.0, -2.0, 3.0, -4.0, 1.0
 test__inv__3__assertions: .float 1.333333333, -3.0, 0.666666666, 0.833333333, -2.0, 0.166666666, -0.666666666, 1.0, -0.333333333
+test__inv__4__input:      .float 8.0, 2.0, 3.0, 4.0, 5.0, 1.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 2.0, 14.0, 1.0, 16.0
 .text
 main:
 
@@ -206,6 +207,44 @@ main:
 	lwc1 $f1, 32($t1) # i assert
 	c.eq.s $f0, $f1
 	bc1f assertion_failed
+
+	# test__inv__4
+
+	la $t0, det
+	la $t1, test__inv__4__input
+	lwc1 $f1, 0($t1)
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 4($t1)
+	swc1 $f1, 4($t0)
+	lwc1 $f1, 8($t1)
+	swc1 $f1, 8($t0)
+	lwc1 $f1,12($t1)
+	swc1 $f1,12($t0)
+	lwc1 $f1,16($t1)
+	swc1 $f1,16($t0)
+	lwc1 $f1,20($t1)
+	swc1 $f1,20($t0)
+	lwc1 $f1,24($t1)
+	swc1 $f1,24($t0)
+	lwc1 $f1,28($t1)
+	swc1 $f1,28($t0)
+	lwc1 $f1,32($t1)
+	swc1 $f1,32($t0)
+	lwc1 $f1,36($t1)
+	swc1 $f1,36($t0)
+	lwc1 $f1,40($t1)
+	swc1 $f1,40($t0)
+	lwc1 $f1,44($t1)
+	swc1 $f1,44($t0)
+	lwc1 $f1,48($t1)
+	swc1 $f1,48($t0)
+	lwc1 $f1,52($t1)
+	swc1 $f1,52($t0)
+	lwc1 $f1,56($t1)
+	swc1 $f1,56($t0)
+	lwc1 $f1,60($t1)
+	swc1 $f1,60($t0)
+	jal det__4
 	
 exit:
 	li $v0, 10
@@ -2021,7 +2060,6 @@ inv__4:
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
-
 
 
 
