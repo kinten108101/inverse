@@ -9,6 +9,7 @@ test__inv__3__assertions: .float 1.333333333, -3.0, 0.666666666, 0.833333333, -2
 test__inv__4__input:      .float 8.0, 2.0, 3.0, 4.0, 5.0, 1.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 2.0, 14.0, 1.0, 16.0
 test__inv__4__assertions: .float 0.17638153, -0.042392127, -0.02043906, -0.0075700227, -0.02346707, -0.17032552, 0.114307344, 0.005299016, -0.13020439, 0.022710068, 0.11809235, -0.0673732, 0.0066237696, 0.15291446, -0.104844816, 0.06302044
 test__inv__5__input:      .float 8.0, 2.0, 3.0, 4.0, 9.0, 5.0, 1.1, 7.0, 8.0, 1.0, 9.0, 10.0, 11.0, 12.0, 2.0, 4.0, 14.0, 23.0, 16.0, 3.0, 5.0, 6.0, 7.0, 8.0, 10.0
+test__inv__5__assertions: .float 0.17257497
 .text
 main:
 
@@ -444,7 +445,7 @@ main:
 	
 	# test__inv__5
 
-	la $t0, det
+	la $t0, rm
 	la $t1, test__inv__5__input
 	lwc1 $f1, 0($t1)
 	swc1 $f1, 0($t0)
@@ -496,7 +497,22 @@ main:
 	swc1 $f1,92($t0)
 	lwc1 $f1,96($t1)
 	swc1 $f1,96($t0)
-	jal det__5
+	jal inv__5
+	la $t0, rm_inv
+	la $t1, test__inv__5__assertions
+	
+	lwc1 $f0, 0($t0) # a
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 0($t1) # a assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
 exit:
 	li $v0, 10
 	syscall
@@ -3015,6 +3031,114 @@ inv__4:
 	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,60($t0) # save to p
+
+	lw $ra, 0($sp)
+	addi $sp,$sp,4
+	jr $ra
+
+# @param `rm` base address of input matrix
+# @param `rm_inv` base address of output matrix
+# @param `det` see det__5
+inv__5:
+	addi $sp,$sp,-4
+	sw $ra, 0($sp)
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1, 0($t1)
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 4($t1)
+	swc1 $f1, 4($t0)
+	lwc1 $f1, 8($t1)
+	swc1 $f1, 8($t0)
+	lwc1 $f1,12($t1)
+	swc1 $f1,12($t0)
+	lwc1 $f1,16($t1)
+	swc1 $f1,16($t0)
+	lwc1 $f1,20($t1)
+	swc1 $f1,20($t0)
+	lwc1 $f1,24($t1)
+	swc1 $f1,24($t0)
+	lwc1 $f1,28($t1)
+	swc1 $f1,28($t0)
+	lwc1 $f1,32($t1)
+	swc1 $f1,32($t0)
+	lwc1 $f1,36($t1)
+	swc1 $f1,36($t0)
+	lwc1 $f1,40($t1)
+	swc1 $f1,40($t0)
+	lwc1 $f1,44($t1)
+	swc1 $f1,44($t0)
+	lwc1 $f1,48($t1)
+	swc1 $f1,48($t0)
+	lwc1 $f1,52($t1)
+	swc1 $f1,52($t0)
+	lwc1 $f1,56($t1)
+	swc1 $f1,56($t0)
+	lwc1 $f1,60($t1)
+	swc1 $f1,60($t0)
+	lwc1 $f1,64($t1)
+	swc1 $f1,64($t0)
+	lwc1 $f1,68($t1)
+	swc1 $f1,68($t0)
+	lwc1 $f1,72($t1)
+	swc1 $f1,72($t0)
+	lwc1 $f1,76($t1)
+	swc1 $f1,76($t0)
+	lwc1 $f1,80($t1)
+	swc1 $f1,80($t0)
+	lwc1 $f1,84($t1)
+	swc1 $f1,84($t0)
+	lwc1 $f1,88($t1)
+	swc1 $f1,88($t0)
+	lwc1 $f1,92($t1)
+	swc1 $f1,92($t0)
+	lwc1 $f1,96($t1)
+	swc1 $f1,96($t0)
+	jal det__5
+	# $f0 now has det__5
+	mov.s $f9, $f0
+
+	# a
+	la $t0, det
+	la $t1, rm
+	lwc1 $f1,24($t1) # g
+	swc1 $f1, 0($t0)
+	lwc1 $f1,28($t1) # h
+	swc1 $f1, 4($t0)
+	lwc1 $f1,32($t1) # i
+	swc1 $f1, 8($t0)
+	lwc1 $f1,36($t1) # j
+	swc1 $f1,12($t0)
+	lwc1 $f1,44($t1) # l
+	swc1 $f1,16($t0)
+	lwc1 $f1,48($t1) # m
+	swc1 $f1,20($t0)
+	lwc1 $f1,52($t1) # n
+	swc1 $f1,24($t0)
+	lwc1 $f1,56($t1) # o
+	swc1 $f1,28($t0)
+	lwc1 $f1,64($t1) # q
+	swc1 $f1,32($t0)
+	lwc1 $f1,68($t1) # r
+	swc1 $f1,36($t0)
+	lwc1 $f1,72($t1) # s
+	swc1 $f1,40($t0)
+	lwc1 $f1,76($t1) # t
+	swc1 $f1,44($t0)
+	lwc1 $f1,84($t1) # v
+	swc1 $f1,48($t0)
+	lwc1 $f1,88($t1) # w
+	swc1 $f1,52($t0)
+	lwc1 $f1,92($t1) # x
+	swc1 $f1,56($t0)
+	lwc1 $f1,96($t1) # y
+	swc1 $f1,60($t0)
+	jal det__4
+	# $f0 now has det__4
+	mov.s $f1, $f0
+	div.s $f1, $f1, $f9
+	la $t0, rm_inv
+	swc1 $f1, 0($t0) # save to a
 
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
