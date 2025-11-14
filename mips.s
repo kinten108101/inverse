@@ -2,10 +2,12 @@
 rm:     .space 400
 rm_inv: .space 400
 det:    .space 400
-test__inv__2__input:      .float 1.0,2.0,3.0,4.0,5.0,6.0
+test__inv__2__input:      .float 1.0, 2.0, 3.0, 4.0
 test__inv__2__assertions: .float -2.0, 1.0, 1.5, -0.5
 test__inv__3__input:      .float -3.0, 2.0, -5.0, -1.0, 0.0, -2.0, 3.0, -4.0, 1.0
-test__inv__3__assertions: .float 1.333, -3.0, 0.666, 0.833, -2.0, 0.166, -0.666, 1.0, -0.333
+test__inv__3__assertions: .float 1.333333333, -3.0, 0.666666666, 0.833333333, -2.0, 0.166666666, -0.666666666, 1.0, -0.333333333
+test__inv__4__input:      .float 8.0, 2.0, 3.0, 4.0, 5.0, 1.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 2.0, 14.0, 1.0, 16.0
+test__inv__4__assertions: .float 0.17638153, -0.042392127, -0.02043906, -0.0075700227, -0.02346707, -0.17032552, 0.114307344, 0.005299016, -0.13020439, 0.022710068, 0.11809235, -0.0673732, 0.0066237696, 0.15291446, -0.104844816, 0.06302044
 .text
 main:
 
@@ -108,6 +110,334 @@ main:
 	li $a0, 10
 	syscall
 	lwc1 $f1, 0($t1)
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 4($t0) # b
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 4($t1) # b assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 8($t0) # c
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 8($t1) # c assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 12($t0) # d
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 12($t1) # d assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 16($t0) # e
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 16($t1) # e assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 20($t0) # f
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 20($t1) # f assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 24($t0) # g
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 24($t1) # g assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 28($t0) # h
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 28($t1) # h assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 32($t0) # i
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 32($t1) # i assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	# test__inv__4
+
+	la $t0, rm
+	la $t1, test__inv__4__input
+	lwc1 $f1, 0($t1)
+	swc1 $f1, 0($t0)
+	lwc1 $f1, 4($t1)
+	swc1 $f1, 4($t0)
+	lwc1 $f1, 8($t1)
+	swc1 $f1, 8($t0)
+	lwc1 $f1,12($t1)
+	swc1 $f1,12($t0)
+	lwc1 $f1,16($t1)
+	swc1 $f1,16($t0)
+	lwc1 $f1,20($t1)
+	swc1 $f1,20($t0)
+	lwc1 $f1,24($t1)
+	swc1 $f1,24($t0)
+	lwc1 $f1,28($t1)
+	swc1 $f1,28($t0)
+	lwc1 $f1,32($t1)
+	swc1 $f1,32($t0)
+	lwc1 $f1,36($t1)
+	swc1 $f1,36($t0)
+	lwc1 $f1,40($t1)
+	swc1 $f1,40($t0)
+	lwc1 $f1,44($t1)
+	swc1 $f1,44($t0)
+	lwc1 $f1,48($t1)
+	swc1 $f1,48($t0)
+	lwc1 $f1,52($t1)
+	swc1 $f1,52($t0)
+	lwc1 $f1,56($t1)
+	swc1 $f1,56($t0)
+	lwc1 $f1,60($t1)
+	swc1 $f1,60($t0)
+	jal inv__4
+	la $t0, rm_inv
+	la $t1, test__inv__4__assertions
+	
+	lwc1 $f0, 0($t0) # a
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 0($t1)
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 4($t0) # b
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 4($t1) # b assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 8($t0) # c
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 8($t1) # c assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 12($t0) # d
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 12($t1) # d assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 16($t0) # e
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 16($t1) # e assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 20($t0) # f
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 20($t1) # f assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 24($t0) # g
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 24($t1) # g assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 28($t0) # h
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 28($t1) # h assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 32($t0) # i
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 32($t1) # i assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 36($t0) # j
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 36($t1) # j assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 40($t0) # k
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 40($t1) # k assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 44($t0) # l
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 44($t1) # l assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 48($t0) # m
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 48($t1) # m assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 52($t0) # n
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 52($t1) # n assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+
+	lwc1 $f0, 56($t0) # o
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 56($t1) # o assert
+	c.eq.s $f0, $f1
+	bc1f assertion_failed
+	
+	lwc1 $f0, 60($t0) # p
+
+	li $v0, 2
+	mov.s $f12, $f0		
+	syscall
+	li $v0, 11
+	li $a0, 10
+	syscall
+	lwc1 $f1, 60($t1) # p assert
 	c.eq.s $f0, $f1
 	bc1f assertion_failed
 	
@@ -1394,7 +1724,7 @@ inv__3:
 	swc1 $f1,32($t0)
 	jal det__3
 	# $f0 now has det__3
-	mov.s $f2, $f0
+	mov.s $f9, $f0
 
 	# a
 	la $t0, det
@@ -1410,7 +1740,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 0($t0) # save to a
 
@@ -1429,7 +1759,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 4($t0) # save to b
 
@@ -1447,7 +1777,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 8($t0) # save to c
 
@@ -1466,9 +1796,9 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
-	swc1 $f1, 8($t0) # save to d
+	swc1 $f1, 12($t0) # save to d
 
 	# e
 	la $t0, det
@@ -1484,7 +1814,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,16($t0) # save to e
 
@@ -1503,7 +1833,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,20($t0) # save to f
 
@@ -1521,7 +1851,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,24($t0) # save to g
 
@@ -1540,7 +1870,7 @@ inv__3:
 	# $f0 now has det__2
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,28($t0) # save to h
 
@@ -1558,7 +1888,7 @@ inv__3:
 	jal det__2
 	# $f0 now has det__2
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,32($t0) # save to i
 
@@ -1608,7 +1938,7 @@ inv__4:
 	swc1 $f1,60($t0)
 	jal det__4
 	# $f0 now has det__4
-	mov.s $f2, $f0
+	mov.s $f9, $f0
 
 	# a
 	la $t0, det
@@ -1634,7 +1964,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 0($t0) # save to a
 
@@ -1663,7 +1993,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 4($t0) # save to b
 
@@ -1691,7 +2021,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1, 8($t0) # save to c
 
@@ -1720,7 +2050,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,12($t0) # save to d
 
@@ -1749,7 +2079,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,16($t0) # save to e
 
@@ -1764,7 +2094,7 @@ inv__4:
 	swc1 $f1, 8($t0)
 	lwc1 $f1,32($t1) # i
 	swc1 $f1,12($t0)
-	lwc1 $f1,36($t1) # j
+	lwc1 $f1,40($t1) # k
 	swc1 $f1,16($t0)
 	lwc1 $f1,44($t1) # l
 	swc1 $f1,20($t0)
@@ -1777,7 +2107,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,20($t0) # save to f
 
@@ -1806,7 +2136,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,24($t0) # save to g
 
@@ -1834,7 +2164,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,28($t0) # save to h
 
@@ -1862,7 +2192,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,32($t0) # save to i
 
@@ -1891,7 +2221,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,36($t0) # save to j
 
@@ -1919,7 +2249,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,40($t0) # save to k
 
@@ -1948,7 +2278,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,44($t0) # save to l
 
@@ -1977,7 +2307,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,48($t0) # save to m
 
@@ -2005,7 +2335,7 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,52($t0) # save to n
 
@@ -2034,7 +2364,7 @@ inv__4:
 	# $f0 now has det__3
 	mov.s $f1, $f0
 	neg.s $f1, $f1
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,56($t0) # save to o
 
@@ -2062,10 +2392,17 @@ inv__4:
 	jal det__3
 	# $f0 now has det__3
 	mov.s $f1, $f0
-	div.s $f1, $f1, $f2
+	div.s $f1, $f1, $f9
 	la $t0, rm_inv
 	swc1 $f1,60($t0) # save to p
 
 	lw $ra, 0($sp)
 	addi $sp,$sp,4
 	jr $ra
+
+
+
+
+
+
+
